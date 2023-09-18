@@ -9,11 +9,16 @@ const app = express()
 
 // middleware
 app.use(express.json())
+console.log("connecting to express...")
 
-app.use((req, res, next) => {
-  console.log(req.path, req.method)
-  next()
-})
+// app.use((req, res, next) => {
+//   console.log(req.path, req.method)
+//   next();
+// })
+app.use((req,res, next) => {
+  console.log(req.path, req.method);
+  next();
+});
 
 // routes
 app.use('/api/workouts', workoutRoutes)
